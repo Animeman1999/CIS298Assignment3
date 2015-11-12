@@ -47,7 +47,7 @@ Through File System:   app/src/main/res/raw/
 
 ## Outside Resources Used
 
-
+http://programmers.stackexchange.com/questions/228584/why-is-bigdecimal-the-best-data-type-for-currency
 
 ## Known Problems, Issues, And/Or Errors in the Program
 
