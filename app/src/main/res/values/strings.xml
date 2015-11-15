@@ -3,4 +3,9 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="beverage_title_label">Name</string>
+    <string name="id_label">Id:</string>
+    <string name="pack_label">Pack:</string>
+    <string name="price_label">Price:</string>
+    <string name="active_label">Active:</string>
 </resources>

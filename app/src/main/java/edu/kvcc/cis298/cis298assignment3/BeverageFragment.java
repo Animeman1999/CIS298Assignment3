@@ -10,13 +10,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.TextView;
 
 /**
  * Created by jmartin5229 on 11/12/2015.
  */
 public class BeverageFragment extends Fragment {
     private Beverage mBeverage; // To hold a single Beverage class
-    private EditText mTitlefield;
+    private TextView mTitlefield;
 
 
     @Override
@@ -28,7 +29,7 @@ public class BeverageFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View v = inflater.inflate(R.layout.fragment_wine, container, false);
-        mTitlefield = (EditText)v.findViewById(R.id.beverage_title);
+        mTitlefield = (TextView)v.findViewById(R.id.list_beverage_title);
         mTitlefield.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
