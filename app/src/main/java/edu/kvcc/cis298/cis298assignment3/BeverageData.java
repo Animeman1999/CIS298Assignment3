@@ -31,6 +31,10 @@ public class BeverageData {//  A Singleton to hold the Beverage Data
         this.loadBeverageList();
     }
 
+    public List<Beverage> getBeverages(){
+        return mBeverages;
+    }
+
     private void loadBeverageList() {
         Scanner scanner;
 

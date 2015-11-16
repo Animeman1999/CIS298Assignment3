@@ -16,6 +16,8 @@ import java.util.List;
  */
 public class BeverageListFragment extends Fragment{
     private RecyclerView mBeverageRecyclerView;
+    private BeverageAdapter mBeverageAdapter;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
@@ -23,7 +25,17 @@ public class BeverageListFragment extends Fragment{
         mBeverageRecyclerView = (RecyclerView) view.findViewById(R.id.beverage_recycler_view);
         mBeverageRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
+        updateUI();
+
         return view;
+    }
+
+    private void updateUI(){
+        BeverageData beverageData = BeverageData.get(getActivity());
+        List<Beverage> beverages = beverageData.getBeverages();
+
+        mBeverageAdapter = new BeverageAdapter(beverages);
+        mBeverageRecyclerView.setAdapter(mBeverageAdapter);
     }
 
     private class BeverageHolder extends RecyclerView.ViewHolder{
@@ -35,11 +47,11 @@ public class BeverageListFragment extends Fragment{
         }
     }
 
-    private class CrimeAdapter extends RecyclerView.Adapter<BeverageHolder>{
+    private class BeverageAdapter extends RecyclerView.Adapter<BeverageHolder>{
 
         private List<Beverage> mBeverages;
 
-        public CrimeAdapter(List<Beverage> beverages){
+        public BeverageAdapter(List<Beverage> beverages){
             mBeverages = beverages;
         }
 
@@ -53,7 +65,7 @@ public class BeverageListFragment extends Fragment{
         @Override
         public void onBindViewHolder(BeverageHolder holder, int position){
             Beverage beverage = mBeverages.get(position);
-            holder.mTextView.setText(beverage.getId());
+            holder.mTextView.setText(beverage.getName());
         }
 
         @Override
