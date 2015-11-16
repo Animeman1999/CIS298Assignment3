@@ -9,11 +9,23 @@ public class Beverage {  // CLASS TO HOLD ONE BEVERAGE (Example data: 75981,1805
     private int mId;
     private String mName;
     private String mPack;
-    private BigDecimal mPrice;
+    private Double mPrice;
     private Boolean mActive;
 
-    public Beverage(){
+    public  Beverage(){
+        mId = 75981;
+        mName ="1805 Merlot";
+        mPack ="750 ml";
+        mPrice = 48.32;
+        mActive = true;
+    }
 
+    public  Beverage(int id, String name, String pack, double price, boolean active){
+        mId = id;
+        mName =name;
+        mPack =pack;
+        mPrice = price;
+        mActive = active;
     }
 
     public int getId() {
@@ -40,11 +52,11 @@ public class Beverage {  // CLASS TO HOLD ONE BEVERAGE (Example data: 75981,1805
         mPack = pack;
     }
 
-    public BigDecimal getPrice() {
+    public Double getPrice() {
         return mPrice;
     }
 
-    public void setPrice(BigDecimal price) {
+    public void setPrice(Double price) {
         mPrice = price;
     }
 
