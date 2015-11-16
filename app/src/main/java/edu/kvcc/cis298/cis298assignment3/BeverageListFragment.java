@@ -39,11 +39,24 @@ public class BeverageListFragment extends Fragment{
     }
 
     private class BeverageHolder extends RecyclerView.ViewHolder{
-        public TextView mTextView;
+        private TextView mTitleTextView;
+        private TextView mIdNumTextView;
+        private TextView mListPriceTextView;
+
+        private Beverage mBeverage;
+
+        public void bindBeverage (Beverage beverage){
+            mBeverage = beverage;
+            mTitleTextView.setText(mBeverage.getName());
+            mIdNumTextView.setText(Integer.toString(mBeverage.getId()));
+            mListPriceTextView.setText(mBeverage.getPrice().toString());
+        }
 
         public BeverageHolder (View itemView){
             super(itemView);
-            mTextView = (TextView) itemView;
+            mTitleTextView = (TextView)itemView.findViewById(R.id.list_beverage_title);
+            mIdNumTextView = (TextView)itemView.findViewById(R.id.list_id_num);
+            mListPriceTextView = (TextView)itemView.findViewById(R.id.list_price);
         }
     }
 
@@ -57,15 +70,17 @@ public class BeverageListFragment extends Fragment{
 
         @Override
         public BeverageHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+
+
             LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
-            View view = layoutInflater.inflate(android.R.layout.simple_expandable_list_item_1, parent, false);
+            View view = layoutInflater.inflate(R.layout.fragment_beverage, parent, false);
             return new BeverageHolder(view);
         }
 
         @Override
         public void onBindViewHolder(BeverageHolder holder, int position){
             Beverage beverage = mBeverages.get(position);
-            holder.mTextView.setText(beverage.getName());
+            holder.bindBeverage(beverage);
         }
 
         @Override
