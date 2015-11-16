@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -38,7 +39,7 @@ public class BeverageListFragment extends Fragment{
         mBeverageRecyclerView.setAdapter(mBeverageAdapter);
     }
 
-    private class BeverageHolder extends RecyclerView.ViewHolder{
+    private class BeverageHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         private TextView mTitleTextView;
         private TextView mIdNumTextView;
         private TextView mListPriceTextView;
@@ -54,9 +55,14 @@ public class BeverageListFragment extends Fragment{
 
         public BeverageHolder (View itemView){
             super(itemView);
+            itemView.setOnClickListener(this);
             mTitleTextView = (TextView)itemView.findViewById(R.id.list_beverage_title);
             mIdNumTextView = (TextView)itemView.findViewById(R.id.list_id_num);
             mListPriceTextView = (TextView)itemView.findViewById(R.id.list_price);
+        }
+        @Override
+        public void onClick(View v){
+            Toast.makeText(getActivity(), mBeverage.getName()+" clicked",Toast.LENGTH_SHORT).show();
         }
     }
 
