@@ -17,8 +17,9 @@ import android.widget.TextView;
  */
 public class BeverageFragment extends Fragment {
     private Beverage mBeverage; // To hold a single Beverage class
-    private TextView mTitlefield;
-
+    private TextView mListBeverageTitle;
+    private TextView mListIdNum;
+    private TextView mListPrice;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -29,23 +30,16 @@ public class BeverageFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View v = inflater.inflate(R.layout.fragment_wine, container, false);
-        mTitlefield = (TextView)v.findViewById(R.id.list_beverage_title);
-        mTitlefield.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
-            }
 
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                mBeverage.setName(s.toString());//      This needs more data added to the mBeverage
-            }
+        mListBeverageTitle = (TextView)v.findViewById(R.id.list_beverage_title);
+        mListBeverageTitle.setText(mBeverage.getName());
 
-            @Override
-            public void afterTextChanged(Editable s) {
+        mListIdNum = (TextView)v.findViewById(R.id.list_id_num);
+        mListIdNum.setText(Integer.toString(mBeverage.getId()));
 
-            }
-        });
+        mListPrice = (TextView)v.findViewById(R.id.list_price);
+        mListPrice.setText("$" + mBeverage.getPrice().toString());
 
 
         return v;
