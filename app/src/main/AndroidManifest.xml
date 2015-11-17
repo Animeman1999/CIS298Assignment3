@@ -16,7 +16,9 @@
         <activity
             android:name=".BeverageActivity"
             android:label="@string/app_name" >
-
+        </activity>
+        <activity
+            android:name=".BeveragePagerActivity">
         </activity>
     </application>
 

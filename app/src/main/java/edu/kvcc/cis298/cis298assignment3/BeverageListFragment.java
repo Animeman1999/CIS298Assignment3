@@ -63,7 +63,7 @@ public class BeverageListFragment extends Fragment{
         }
         @Override
         public void onClick(View v){
-            Intent intent = new Intent(getActivity(), BeverageActivity.class);
+            Intent intent = BeveragePagerActivity.newIntent(getActivity(),mBeverage.getId());
             startActivity(intent);
         }
     }
