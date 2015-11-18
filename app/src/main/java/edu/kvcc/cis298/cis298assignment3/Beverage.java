@@ -12,13 +12,14 @@ public class Beverage {  // CLASS TO HOLD ONE BEVERAGE (Example data: 75981,1805
     private Double mPrice;
     private Boolean mActive;
 
-    public  Beverage(){
+  /*  public  Beverage(){
         mId = 75981;
         mName ="1805 Merlot";
         mPack ="750 ml";
         mPrice = 48.32;
         mActive = true;
     }
+*/
 
     public  Beverage(int id, String name, String pack, double price, boolean active){
         mId = id;

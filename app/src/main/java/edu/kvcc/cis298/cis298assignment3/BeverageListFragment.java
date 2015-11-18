@@ -24,6 +24,7 @@ public class BeverageListFragment extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View view = inflater.inflate(R.layout.fragment_beverage_list, container, false);
+
         mBeverageRecyclerView = (RecyclerView) view.findViewById(R.id.beverage_recycler_view);
         mBeverageRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
@@ -42,12 +43,15 @@ public class BeverageListFragment extends Fragment{
         BeverageData beverageData = BeverageData.get(getActivity());
         List<Beverage> beverages = beverageData.getBeverages();
 
-        mBeverageAdapter = new BeverageAdapter(beverages);
-        mBeverageRecyclerView.setAdapter(mBeverageAdapter);
+     //   mBeverageAdapter = new BeverageAdapter(beverages);
+     //   mBeverageRecyclerView.setAdapter(mBeverageAdapter);
 
         if (mBeverageAdapter == null){
             mBeverageAdapter = new BeverageAdapter(beverages);
             mBeverageRecyclerView.setAdapter(mBeverageAdapter);
+        } else {
+            mBeverageAdapter.notifyDataSetChanged();
+
         }
     }
 

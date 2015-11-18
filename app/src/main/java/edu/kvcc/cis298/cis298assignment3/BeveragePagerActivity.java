@@ -51,6 +51,13 @@ public class BeveragePagerActivity extends FragmentActivity {
                 return mBeverages.size();
             }
         });
+
+        for (int i = 0; i < mBeverages.size(); i++){
+            if (Integer.valueOf(mBeverages.get(i).getId()).equals(beverageId)){
+                mViewPager.setCurrentItem(i);
+                i = mBeverages.size();
+            }
+        }
     }
 
 

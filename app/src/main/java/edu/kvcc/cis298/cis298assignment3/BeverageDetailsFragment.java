@@ -19,13 +19,13 @@ public class BeverageDetailsFragment extends Fragment {
     private EditText mPrice;
     private CheckBox mActive;
 
-    private static final String ARG_Beverage_ID = "beverage_id";
+    private static final String ARG_BEVERAGE_ID = "beverage_id";
 
     public static BeverageDetailsFragment newInstance(int idNum){
 
         Bundle args = new Bundle();
 
-        args.putSerializable(ARG_Beverage_ID, idNum);
+        args.putSerializable(ARG_BEVERAGE_ID, idNum);
 
         BeverageDetailsFragment detailsFragment = new BeverageDetailsFragment();
 
@@ -38,8 +38,9 @@ public class BeverageDetailsFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mBeverage = new Beverage();
+        Integer beverageID = (Integer) getArguments().getSerializable(ARG_BEVERAGE_ID);
 
+        mBeverage = BeverageData.get(getActivity()).getBeverage(beverageID);
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

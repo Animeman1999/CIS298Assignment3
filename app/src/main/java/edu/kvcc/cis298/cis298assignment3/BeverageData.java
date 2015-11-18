@@ -35,6 +35,16 @@ public class BeverageData {//  A Singleton to hold the Beverage Data
         return mBeverages;
     }
 
+    public Beverage getBeverage (int id){
+        for (Beverage beverage: mBeverages){
+            if (Integer.valueOf(beverage.getId()).equals(id)){
+                return beverage;
+            }
+
+        }
+        return null;
+    }
+
     private void loadBeverageList() {
         Scanner scanner;
 

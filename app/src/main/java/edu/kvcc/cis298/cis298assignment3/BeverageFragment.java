@@ -17,11 +17,23 @@ public class BeverageFragment extends Fragment {
     private TextView mListBeverageTitle;
     private TextView mListIdNum;
     private TextView mListPrice;
+    private static final String ARG_BEVERAGE_ID = "beverage_id";
+
+    public static BeverageFragment newInstance(int beverageId){
+        Bundle args = new Bundle();
+        args.putSerializable(ARG_BEVERAGE_ID, beverageId);
+        BeverageFragment fragment = new BeverageFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mBeverage = new Beverage();
+
+        Integer beverageID = (Integer) getArguments().getSerializable(ARG_BEVERAGE_ID);
+
+        mBeverage = BeverageData.get(getActivity()).getBeverage(beverageID);
 
     }
     @Override
