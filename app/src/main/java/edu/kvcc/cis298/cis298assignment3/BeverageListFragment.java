@@ -32,12 +32,23 @@ public class BeverageListFragment extends Fragment{
         return view;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        updateUI();
+    }
+
     private void updateUI(){
         BeverageData beverageData = BeverageData.get(getActivity());
         List<Beverage> beverages = beverageData.getBeverages();
 
         mBeverageAdapter = new BeverageAdapter(beverages);
         mBeverageRecyclerView.setAdapter(mBeverageAdapter);
+
+        if (mBeverageAdapter == null){
+            mBeverageAdapter = new BeverageAdapter(beverages);
+            mBeverageRecyclerView.setAdapter(mBeverageAdapter);
+        }
     }
 
     private class BeverageHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
