@@ -124,7 +124,12 @@ public class BeverageFragment extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                mBeverage.setId(Integer.parseInt(s.toString()));
+                try {
+                    mBeverage.setId(Integer.parseInt(s.toString()));
+                }catch (Exception e){
+                    mBeverage.setId(0);
+                }
+
             }
 
             @Override
@@ -162,7 +167,11 @@ public class BeverageFragment extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                mBeverage.setPrice(Double.parseDouble(s.toString()));
+                try {
+                    mBeverage.setPrice(Double.parseDouble(s.toString()));
+                } catch (Exception e) {
+                    mBeverage.setPrice(0.00) ;
+                }
             }
 
             @Override
