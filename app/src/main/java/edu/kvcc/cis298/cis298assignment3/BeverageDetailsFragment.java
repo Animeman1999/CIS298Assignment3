@@ -12,7 +12,7 @@ import android.widget.EditText;
  * Created by Jeffrey on 11/16/2015.
  */
 public class BeverageDetailsFragment extends Fragment {
-    private Beverage mBeverage;
+ /*     private Beverage mBeverage;
     private EditText mBeverageTitle;
     private EditText mIdNum;
     private EditText mPack;
@@ -64,5 +64,5 @@ public class BeverageDetailsFragment extends Fragment {
 
         return v;
     }
-
+*/
 }

@@ -43,7 +43,7 @@ public class BeveragePagerActivity extends FragmentActivity {
             @Override
             public Fragment getItem(int position) {
                 Beverage beverage = mBeverages.get(position);
-                return BeverageDetailsFragment.newInstance(beverage.getId());
+                return BeverageFragment.newInstance(beverage.getId());
             }
 
             @Override
