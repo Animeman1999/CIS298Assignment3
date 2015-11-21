@@ -47,9 +47,12 @@ Through File System:   app/src/main/res/raw/
 
 ## Outside Resources Used
 
-http://programmers.stackexchange.com/questions/228584/why-is-bigdecimal-the-best-data-type-for-currency
 
 http://stackoverflow.com/questions/5049852/android-drawing-separator-divider-line-in-layout
+
+http://stackoverflow.com/questions/29650287/how-to-increase-font-size-in-strings-xml-in-android
+
+
 
 ## Known Problems, Issues, And/Or Errors in the Program
 
