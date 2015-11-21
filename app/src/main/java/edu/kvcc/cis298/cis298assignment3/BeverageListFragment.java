@@ -66,7 +66,7 @@ public class BeverageListFragment extends Fragment{
             mBeverage = beverage;
             mTitleTextView.setText(mBeverage.getName());
             mIdNumTextView.setText(Integer.toString(mBeverage.getId()));
-            mListPriceTextView.setText(mBeverage.getPrice().toString());
+            mListPriceTextView.setText("$ "+mBeverage.getPrice().toString());
         }
 
         public BeverageHolder (View itemView){

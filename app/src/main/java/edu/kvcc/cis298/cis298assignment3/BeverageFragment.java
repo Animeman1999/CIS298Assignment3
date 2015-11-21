@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,53 +14,13 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.CompoundButton;
+import android.widget.Toast;
 
 
 /**
  * Created by jmartin5229 on 11/12/2015.
  */
 public class BeverageFragment extends Fragment {
- /*   private Beverage mBeverage; // To hold a single Beverage class
-    private TextView mListBeverageTitle;
-    private TextView mListIdNum;
-    private TextView mListPrice;
-    private static final String ARG_BEVERAGE_ID = "beverage_id";
-
-    public static BeverageFragment newInstance(int beverageId){
-        Bundle args = new Bundle();
-        args.putSerializable(ARG_BEVERAGE_ID, beverageId);
-        BeverageFragment fragment = new BeverageFragment();
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        Integer beverageID = (Integer) getArguments().getSerializable(ARG_BEVERAGE_ID);
-
-        mBeverage = BeverageData.get(getActivity()).getBeverage(beverageID);
-
-    }
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        View v = inflater.inflate(R.layout.fragment_beverage, container, false);
-
-
-        mListBeverageTitle = (TextView)v.findViewById(R.id.list_beverage_title);
-        mListBeverageTitle.setText(mBeverage.getName());
-
-        mListIdNum = (TextView)v.findViewById(R.id.list_id_num);
-        mListIdNum.setText(Integer.toString(mBeverage.getId()));
-
-        mListPrice = (TextView)v.findViewById(R.id.list_price);
-        mListPrice.setText("$" + mBeverage.getPrice().toString());
-
-
-        return v;
-    }
-*/
 
     private Beverage mBeverage;
     private EditText mBeverageTitle;
@@ -67,6 +28,7 @@ public class BeverageFragment extends Fragment {
     private EditText mPack;
     private EditText mPrice;
     private CheckBox mActive;
+    private String mTempString;
 
     private static final String ARG_BEVERAGE_ID = "beverage_id";
 
@@ -124,9 +86,10 @@ public class BeverageFragment extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
+
                 try {
                     mBeverage.setId(Integer.parseInt(s.toString()));
-                }catch (Exception e){
+                } catch (Exception e) {
                     mBeverage.setId(0);
                 }
 
@@ -167,11 +130,13 @@ public class BeverageFragment extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
+
                 try {
                     mBeverage.setPrice(Double.parseDouble(s.toString()));
                 } catch (Exception e) {
-                    mBeverage.setPrice(0.00) ;
+                    mBeverage.setPrice(0.0);
                 }
+
             }
 
             @Override
