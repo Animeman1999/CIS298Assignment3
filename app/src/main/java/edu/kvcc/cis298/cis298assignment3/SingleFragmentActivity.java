@@ -10,19 +10,23 @@ import android.support.v4.app.FragmentManager;
  */
 public abstract class SingleFragmentActivity extends FragmentActivity {
 
-    protected abstract Fragment createFragment();
+    protected abstract Fragment createFragment();//A method for every activity that is created can implement.
 
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_fragment);
 
-        FragmentManager fm = getSupportFragmentManager();
-        Fragment fragment = fm.findFragmentById(R.id.fragment_container);
+        setContentView(R.layout.activity_fragment);//Inflates and Activity to create the view.
 
-        if (fragment == null){
-            fragment = createFragment();
-            fm.beginTransaction()
+        FragmentManager fm = getSupportFragmentManager();//Create a Fragment Manager
+
+        Fragment fragment = fm.findFragmentById(R.id.fragment_container);// Use the fragment manger to get the fragment and tie it to the fragment_container.
+
+        if (fragment == null){//Check to see if the fragment is null as it will be on start up.
+
+            fragment = createFragment(); //Create a new instance of the fragment, since it does not exist.
+
+            fm.beginTransaction() //Start the transaction by adding the fragment to the frame and then committing the changes.
                     .add(R.id.fragment_container, fragment)
                     .commit();
         }
