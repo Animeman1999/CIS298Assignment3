@@ -52,7 +52,7 @@ http://stackoverflow.com/questions/5049852/android-drawing-separator-divider-lin
 
 http://stackoverflow.com/questions/29650287/how-to-increase-font-size-in-strings-xml-in-android
 
-
+http://stackoverflow.com/questions/1309629/how-to-change-colors-of-a-drawable-in-android
 
 ## Known Problems, Issues, And/Or Errors in the Program
 

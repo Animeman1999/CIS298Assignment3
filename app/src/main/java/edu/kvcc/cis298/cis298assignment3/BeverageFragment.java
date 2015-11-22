@@ -2,6 +2,10 @@ package edu.kvcc.cis298.cis298assignment3;
 
 
 
+import android.graphics.Color;
+import android.graphics.ColorFilter;
+import android.graphics.LightingColorFilter;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;  // MUST BE ADDED TO USE FRAGMENTS
 import android.text.Editable;
@@ -88,28 +92,12 @@ public class BeverageFragment extends Fragment {
         //Ties IdNums together and updates the Id when it is changed.
         mIdNum= (EditText)v.findViewById(R.id.id_num);
         mIdNum.setText(Integer.toString(mBeverage.getId()));
-        mIdNum.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                // Space left intentionally blank
-            }
 
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                // When the value entered is out side of range set it to zero.
-                try {
-                    mBeverage.setId(Integer.parseInt(s.toString()));
-                } catch (Exception e) {
-                    mBeverage.setId(0);
-                }
+        // This changes the underline color of the EditText of the Id back to black. It was almost un-viewable when it was made disabled.
+        ColorFilter filter = new LightingColorFilter( Color.BLACK, Color.BLACK);
+        mIdNum.getBackground().setColorFilter(filter);
 
-            }
 
-            @Override
-            public void afterTextChanged(Editable s) {
-                // Space left intentionally blank
-            }
-        });
 
         //Ties the Packs together ane updates the Pack when changed.
         mPack = (EditText)v.findViewById(R.id.pack);
