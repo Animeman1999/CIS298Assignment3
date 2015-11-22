@@ -57,7 +57,7 @@ public class BeverageListFragment extends Fragment{// Controller class to create
 
             mBeverageRecyclerView.setAdapter(mBeverageAdapter);// Set the Adapter just created to the RecyclerView
 
-        } else {//The adapter all ready exist.
+        } else {//The adapter all ready exists.
 
             mBeverageAdapter.notifyDataSetChanged(); //Automatically update the data.
 
@@ -73,7 +73,7 @@ public class BeverageListFragment extends Fragment{// Controller class to create
 
         private Beverage mBeverage; // A single Beverage
 
-        public BeverageHolder (View itemView){//Constructor that takes the View passed in and assigns it to a Class lever Version.
+        public BeverageHolder (View itemView){//Constructor that takes the View passed in and assigns it to a Class level Version.
             super(itemView);
 
             itemView.setOnClickListener(this);//Create an onClickListener interface.
@@ -84,7 +84,8 @@ public class BeverageListFragment extends Fragment{// Controller class to create
             mListPriceTextView = (TextView)itemView.findViewById(R.id.list_price);
         }
 
-        public void bindBeverage (Beverage beverage){//Method that takes an instance of Beverage and assigns it to a class level version. The class level is used pass its properties to various view controls.
+        public void bindBeverage (Beverage beverage){//Method that takes an instance of Beverage and assigns it to a class level version. The class level is used  and
+        // passes its properties to various view controls.
             mBeverage = beverage;
 
             //Set the data from the beverage into each TextView

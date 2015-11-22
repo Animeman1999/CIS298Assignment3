@@ -32,9 +32,10 @@ public class BeverageFragment extends Fragment {
     private EditText mPrice;
     private CheckBox mActive;
 
-    private static final String ARG_BEVERAGE_ID = "beverage_id";// Static String to be used as the key for parameters we set and retrieve from the bundle.
+    private static final String ARG_BEVERAGE_ID = "beverage_id";// Static String to be used as the key for parameters set and retrieved from the bundle.
 
-    //This is a static method that is used to create a new instance of BeverageFragment. It uses idNum to pass in the correct information of a Beverage. Any Activity can call this method and get a properly created BeverageFragment.
+    //This is a static method that is used to create a new instance of BeverageFragment. It uses idNum to pass in the correct information of a Beverage.
+    // Any Activity can call this method and get a properly created BeverageFragment.
     public static BeverageFragment newInstance(int idNum){
 
         //Create an arguments bundle.
@@ -89,15 +90,13 @@ public class BeverageFragment extends Fragment {
             }
         });
 
-        //Ties IdNums together and updates the Id when it is changed.
+        //Ties IdNums together.
         mIdNum= (EditText)v.findViewById(R.id.id_num);
         mIdNum.setText(Integer.toString(mBeverage.getId()));
 
         // This changes the underline color of the EditText of the Id back to black. It was almost un-viewable when it was made disabled.
         ColorFilter filter = new LightingColorFilter( Color.BLACK, Color.BLACK);
         mIdNum.getBackground().setColorFilter(filter);
-
-
 
         //Ties the Packs together ane updates the Pack when changed.
         mPack = (EditText)v.findViewById(R.id.pack);
@@ -136,7 +135,6 @@ public class BeverageFragment extends Fragment {
                 } catch (Exception e) {
                     mBeverage.setPrice(0.0);
                 }
-
             }
 
             @Override
@@ -154,10 +152,6 @@ public class BeverageFragment extends Fragment {
                 mBeverage.setActive(isChecked);
             }
         });
-
-
         return v;
     }
-
-
 }

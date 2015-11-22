@@ -17,7 +17,7 @@ public class BeverageData {//  A Singleton to hold the Beverage Data
 
     Context mContext;// To hold the Context passed into the Constructor.
 
-    public static BeverageData get(Context context){ //Method to create the singelton.
+    public static BeverageData get(Context context){ //Method to create the singleton.
         if (sBeverageData == null) {
             sBeverageData = new BeverageData(context);
         }
@@ -50,7 +50,7 @@ public class BeverageData {//  A Singleton to hold the Beverage Data
     }
 
 
-    private void loadBeverageList() {//Load the Lis of Beverage from a file.
+    private void loadBeverageList() {//Load the List of Beverage from a file.
         Scanner scanner;
 
         try {//Use try catch in case of errors while reading the file.
@@ -64,7 +64,7 @@ public class BeverageData {//  A Singleton to hold the Beverage Data
 
                 String parts[] = line.split(","); //Split the line read into parts delineated by a comma.
 
-                // TAKE THE SPLIT PARS FROM THE LINE READ IN, AND PLACE INTO THE VARIABLES CREATED FOR EACH DATA TYPE.
+                // TAKE THE SPLIT PARtS FROM THE LINE READ IN, AND PLACE INTO THE VARIABLES CREATED FOR EACH DATA TYPE.
                 int Id = Integer.parseInt(parts[0]);
                 String Name = parts[1];
                 String Pack = parts[2];

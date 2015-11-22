@@ -10,13 +10,13 @@ import android.support.v4.app.FragmentManager;
  */
 public abstract class SingleFragmentActivity extends FragmentActivity {
 
-    protected abstract Fragment createFragment();//A method for every activity that is created can implement.
+    protected abstract Fragment createFragment();//A method which every activity created can implement.
 
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_fragment);//Inflates and Activity to create the view.
+        setContentView(R.layout.activity_fragment);//Inflates an Activity to create the view.
 
         FragmentManager fm = getSupportFragmentManager();//Create a Fragment Manager
 

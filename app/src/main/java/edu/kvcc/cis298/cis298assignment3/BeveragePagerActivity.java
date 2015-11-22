@@ -16,7 +16,7 @@ import java.util.List;
  */
 public class BeveragePagerActivity extends FragmentActivity {
 
-    //String to hld the constant key for the Extra
+    //String to hold the constant key for the Extra
     private static final String EXTRA_BEVERAGE_ID = "edu.kvcc.cis298.assignmnet3.jeff.beverage_id";
 
     private ViewPager mViewPager;// Variable to give access to ViewPager while in the view
@@ -60,12 +60,12 @@ public class BeveragePagerActivity extends FragmentActivity {
             }
         });
 
-        for (int i = 0; i < mBeverages.size(); i++){ //For each beverage in the beverage list
+        for (int i = 0; i < mBeverages.size(); i++){ //Loop through the beverage list.
 
             //Check to see if the id of the current beverage matches the one that was sent in from the BeverageListActivity that was started in this activity.
             if (Integer.valueOf(mBeverages.get(i).getId()).equals(beverageId)){
 
-                mViewPager.setCurrentItem(i);//See the current item of the viewPager to the one sent from the view.
+                mViewPager.setCurrentItem(i);//Set the current item of the viewPager to the one sent from the view.
 
                 i = mBeverages.size(); //Since we found our match, stop looping.
             }
